@@ -44,8 +44,8 @@ def extractData(regex, content, index=1):
         r = m.group(index)  
     return r  
   
-#regex = r'用户ID：(.*) '
-regex = r'本期参与：(.*)人次'
+regex = r'用户ID：(.*) '
+#regex = r'本期参与：(.*)人次'
 dest_url = str('')
 hist={}
 for i in range(1,1543):
