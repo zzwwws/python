@@ -5,18 +5,13 @@ from bs4 import BeautifulSoup
 import re
 import json
 
-#股票代码地址
 STOCK_CODE_URL = 'http://quote.eastmoney.com/stocklist.html'
-#股票信息，包括52周最低价，52周最高价，市盈率参数
 STOCK_INFO_URL = 'http://quotes.money.163.com/app/stock/#.json'
-#股票今日信息，收盘价，涨跌，昨日收盘
 STOCK_INFO_MORE_URL = 'http://api.money.126.net/data/feed/#,MARKET_HS'
 
-#仅查询深市和沪市股票
 def sh_or_sz(href):
     return href and re.compile("http://quote.eastmoney.com/[sh,sz]").search(href)
 
-#stock info @return(股票代码, 股票名称, 52周最高价, 52周最低价, 今日收盘价, 今日收盘价与最高价比例，今日涨跌，市盈率)
 def query_stock(code):
     if code.startswith('00'):
         codep = '1' + code
