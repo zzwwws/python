@@ -14,7 +14,8 @@ ROOT_URL = 'http://1.163.com/m/history/01-48-00-'
 ROOT_URL = 'http://1.163.com/m/history/01-77-00-'
 #iPhone6 Plus 5.5英寸 16G
 #ROOT_URL = 'http://1.163.com/m/history/01-37-00-'
-
+#网易点卡
+ROOT_URL = 'http://1.163.com/m/history/01-30-00-'
 #伪装成浏览器，暂时注释
 br = mechanize.Browser()
 br.set_handle_equiv(True)
@@ -44,11 +45,11 @@ def extractData(regex, content, index=1):
         r = m.group(index)  
     return r  
   
-regex = r'用户ID：(.*) '
-#regex = r'本期参与：(.*)人次'
+#regex = r'用户ID：(.*) '
+regex = r'本期参与：(.*)人次'
 dest_url = str('')
 hist={}
-for i in range(1,1543):
+for i in range(1,8545):
 	print formatPage(i)
 	dest_url = ROOT_URL + formatPage(i) + '.html'
 	response = urllib2.urlopen(dest_url)
